@@ -9,7 +9,13 @@
 
 
 def nejaka_fce():                           # dílčí fce
-    print("neco dela")
+    vstup = open('studenti.txt',"r" , encoding='utf-8')
+    radky = [radek.split("\t") for radek in vstup]
+    vstup.close()
+    jmena = [radek[1] for radek in radky]
+    print(radky)
+    
+
 
 def main():                                # hlavní fce.  (v C a Java se používá jako hlavní fce. V Pythonu ne, ale je to dobrý zvyk. +lze zavolat z importovaného modulu)
     nejaka_fce()
