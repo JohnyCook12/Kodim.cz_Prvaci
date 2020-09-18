@@ -7,3 +7,12 @@
 
 """
 
+
+def nejaka_fce()                           # dílčí fce
+    print("neco dela")
+
+def main():                                # hlavní fce.  (v C a Java se používá jako hlavní fce. V Pythonu ne, ale je to dobrý zvyk. +lze zavolat z importovaného modulu)
+    nejaka_fce()
+
+if __name__ == "__main__":                 # zde odpálím můj script     (abych ho mohl i importovat, ne jen spouštět přímo)
+    main()
