@@ -8,7 +8,7 @@
 """
 
 
-def nejaka_fce()                           # dílčí fce
+def nejaka_fce():                           # dílčí fce
     print("neco dela")
 
 def main():                                # hlavní fce.  (v C a Java se používá jako hlavní fce. V Pythonu ne, ale je to dobrý zvyk. +lze zavolat z importovaného modulu)
