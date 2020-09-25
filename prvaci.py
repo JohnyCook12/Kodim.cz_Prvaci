@@ -11,12 +11,17 @@ import unidecode
 
 
 def nejaka_fce():                           # dílčí fce
-    vstup = open('studenti.txt',"r" , encoding='utf-8')
-    radky = [radek.split("\t") for radek in vstup]
-    vstup.close()
-    jmena = [[radek[0], radek[1], radek[2][0:-1], (100-int(radek[2][0:2])+20), pohlavi(radek[2][2]) , unidecode.unidecode(radek[0][:5])+unidecode.unidecode(radek[1][:3])+"@hybrid.eu" , "\n"] for radek in radky[1:len(radky)]]
-    print(jmena)
-    
+    with open(r'studenti2.txt',"r" , encoding='utf-8') as vstup, open('studenti_vystup.txt',"w" , encoding='utf-8') as vystup:          # studenti.txt je puvodni soubor, studenti2.txt ma navic 1 novy radek na konci
+        radky = [radek.split("\t") for radek in vstup]
+        jmena = [[radek[0], radek[1], radek[2][0:-1], (100-int(radek[2][0:2])+20), pohlavi(radek[2][2]) , unidecode.unidecode(radek[0][:5])+unidecode.unidecode(radek[1][:3])+"@hybrid.eu" , "\n"] for radek in radky[1:len(radky)]]
+        print(jmena)
+
+        for jmeno in jmena:
+            for udaj in jmeno:
+                vystup.write(str(udaj)+"\t")
+
+
+
 def pohlavi(udaj):
     if int(udaj)>1:
         return "žena"
