@@ -6,13 +6,15 @@
     4) pridame sloupec email (=5pismen prijmeni + 3pismena jmena @hybrid.eu
 
 """
+import unidecode
+
 
 
 def nejaka_fce():                           # dílčí fce
     vstup = open('studenti.txt',"r" , encoding='utf-8')
     radky = [radek.split("\t") for radek in vstup]
     vstup.close()
-    jmena = [[radek[0], radek[1], radek[2][0:-1], (100-int(radek[2][0:2])+20), pohlavi(radek[2][2]) , radek[0][:5]+radek[1][:3]+"@hybrid.eu" , "\n"] for radek in radky[1:len(radky)]]
+    jmena = [[radek[0], radek[1], radek[2][0:-1], (100-int(radek[2][0:2])+20), pohlavi(radek[2][2]) , unidecode.unidecode(radek[0][:5])+unidecode.unidecode(radek[1][:3])+"@hybrid.eu" , "\n"] for radek in radky[1:len(radky)]]
     print(jmena)
     
 def pohlavi(udaj):
